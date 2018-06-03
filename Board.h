@@ -96,9 +96,15 @@ public:
     }
     
     //Input a board
-    friend void operator>> (istream& input, Board& b)
+    friend istream& operator>> (istream& input, Board& b)
     {
-    	input >> b.board >> b.boardSize;
+    	vector<vector<gameChar> >tmp;
+    	for(int i=0; i<b.boardSize; i++){
+    		for(int j=0; j<b.boardSize; j++){
+    			tmp[i][j] = b.board[i][j];
+    		}
+    	}
+    	input >> tmp >> b.boardSize;
     }
     
     string draw(const int n);
