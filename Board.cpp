@@ -12,6 +12,16 @@ std::ostream& operator<<(std::ostream& os, const Coordinate& ind)
     return os << a << "," << b;
 }
 
+std::istream& operator>> (istream& is, vector<vector<gameChar> >& v)
+{
+	for(int i=0; i<v.size(); i++){
+    		for(int j=0; j<v.size(); j++){
+    			is >> v[i][j];
+    		}
+    	}
+    	return is;	
+}
+
 gameChar::gameChar() { c = '.'; }
 
 gameChar::gameChar(const char c_)
