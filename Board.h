@@ -98,7 +98,12 @@ public:
     //Input a board
     friend istream& operator>> (istream& input, Board& b)
     {
-    	input >> b.board >> b.boardSize;
+    	for(int i=0; i<b.boardSize; i++){
+    		for(int j=0; j<b.boardSize; j++){
+    			input >> b.board[i][j];
+    		}
+    	}
+    	input >> b.boardSize;
     	return input;
     }
     
