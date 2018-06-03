@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int imageIndex = 0; //used by the draw function
+int imageIndex = 1; //used by the draw function
 
 //display 2D coordinates
 std::ostream& operator<<(std::ostream& os, const Coordinate& ind)
