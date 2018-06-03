@@ -100,7 +100,7 @@ public:
     {
     	for(int i=0; i<b.boardSize; i++){
     		for(int j=0; j<b.boardSize; j++){
-    			input >> b.board[i][j];
+    			board[i][j] = b.board[i][j];
     		}
     	}
     	input >> b.boardSize;
