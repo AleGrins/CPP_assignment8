@@ -98,13 +98,13 @@ public:
     //Input a board
     friend istream& operator>> (istream& input, Board& b)
     {
-    	//vector<vector<gameChar> >tmp;
     	for(int i=0; i<b.boardSize; i++){
     		for(int j=0; j<b.boardSize; j++){
     			input >> b.board[i][j];
     		}
     	}
     	input >> b.boardSize;
+    	return output;
     }
     
     string draw(const int n);
