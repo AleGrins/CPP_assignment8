@@ -96,11 +96,9 @@ public:
     }
     
     //Input a board
-    friend istream& operator>> (istream& input, Board& b)
+    friend void operator>> (istream& input, Board& b)
     {
-    	input >> b.board;
-    	input >> b.boardSize;
-    	return input;
+    	input >> b.board >> b.boardSize;
     }
     
     string draw(const int n);
