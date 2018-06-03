@@ -106,7 +106,7 @@ string Board::draw(const int n)
     string filename = "Game_Board";
 	filename += std::to_string(imageIndex);
 	filename += ".ppm";
-	imageIndex++;
+	imageIndex+=1;
     
     ofstream boardFile (filename);
     boardFile << "P6" << endl; //ppm file type identifier
