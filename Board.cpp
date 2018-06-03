@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int imageIndex = 0;
+int imageIndex = 1;
 
 //display 2D coordinates
 std::ostream& operator<<(std::ostream& os, const Coordinate& ind)
@@ -106,6 +106,7 @@ string Board::draw(const int n)
     string filename = "Game_Board";
 	filename += std::to_string(imageIndex);
 	filename += ".ppm";
+	imageIndex++;
     
     ofstream boardFile (filename);
     boardFile << "P6" << endl; //ppm file type identifier
