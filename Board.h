@@ -104,8 +104,7 @@ public:
     			temp[i][j] = b.board[i][j];
     		}
     	}
-    	board = temp;
-    	input >> b.boardSize;
+    	input >> temp >> b.boardSize;
     	return input;
     }
     
