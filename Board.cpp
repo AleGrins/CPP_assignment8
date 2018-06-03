@@ -2,6 +2,8 @@
 
 using namespace std;
 
+int imageIndex = 0;
+
 //display 2D coordinates
 std::ostream& operator<<(std::ostream& os, const Coordinate& ind)
 {
@@ -18,7 +20,11 @@ gameChar::gameChar(const char c_)
 	c = c_;
 }
 
-gameChar& gameChar::operator= (const gameChar& other) { c=other.c; }
+gameChar& gameChar::operator= (const gameChar& other) 
+{ 
+    c=other.c; 
+    return *this;
+}
 
 bool gameChar::operator== (const gameChar& other) const { return (c == other.c); }		
 bool gameChar::operator== (char c_) const { return (c == c_); }
@@ -96,13 +102,18 @@ const gameChar& Board::operator[](const Coordinate ind) const
 string Board::draw(const int n)
 {
     int imgSegLen = n/boardSize; 
-    ofstream boardFile ("TicTacToe_Board.ppm");
+    //build file name with incrementing index to avoid overwriting
+    string filename = "Game_Board";
+	filename += std::to_string(imageIndex);
+	filename += ".ppm";
+    
+    ofstream boardFile (filename);
     boardFile << "P6" << endl; //ppm file type identifier
     boardFile << n << " " << n << endl; //image width and height
     boardFile << "1" << endl; //maximum color value
     
     if (boardFile.is_open()){
-        //
+        //go over board array and draw image representation
         for(int i = 0; i < boardSize; i++){
             for(int j = 0; j < boardSize; j++){
                 if(board[i][j] == '.'){ //an empty square is black
@@ -129,8 +140,10 @@ string Board::draw(const int n)
             }
         }
         boardFile.close();
+        return filename;
     }
-    else cout << "Unable to open file";
+    cout << "Unable to open file";
+    return " ";
 }
 
 int Board::size() const
