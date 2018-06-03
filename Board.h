@@ -104,7 +104,7 @@ public:
     		}
     	}
     	input >> b.boardSize;
-    	return output;
+    	return input;
     }
     
     string draw(const int n);
